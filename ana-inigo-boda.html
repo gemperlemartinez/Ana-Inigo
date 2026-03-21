@@ -37,7 +37,7 @@
     }
     #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#f0e4d4 0%,#dfd0b8 100%)}
-    .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.42}
+    .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.65}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(245,239,230,.5) 0%,rgba(245,239,230,.72) 100%)}
     .hero-corner{position:absolute;pointer-events:none;font-size:clamp(4rem,10vw,8rem);opacity:.06;user-select:none;line-height:1}
     .hero-corner-tl{top:3%;left:1%;transform:rotate(-10deg)}.hero-corner-br{bottom:4%;right:1%;transform:rotate(170deg)}
@@ -302,7 +302,7 @@
     <span class="section-label reveal" style="color:var(--burg)">Confirmación de asistencia</span>
     <h2 class="section-title reveal">¿Vienes?</h2>
     <div class="divider divider-center reveal"><span class="divider-icon">🌼</span></div>
-    <p class="reveal">Por favor, confírmanos tu asistencia antes del <strong>1 de septiembre de 2026</strong>.</p>
+    <p class="reveal">Por favor, confírmanos tu asistencia antes del <strong>1 de julio de 2026</strong>.</p>
     <form class="rsvp-form reveal" id="rsvpForm">
       <div class="form-group">
         <label for="nombre">Nombre completo</label>
@@ -315,14 +315,12 @@
       <div class="form-group">
         <label for="direccion">Dirección postal</label>
         <input type="text" id="direccion" placeholder="Calle, número, ciudad, código postal">
-        <span class="form-note">La necesitamos para enviarte la invitación 💌</span>
       </div>
       <div class="form-group">
         <label for="asistencia">Confirmación</label>
         <select id="asistencia">
-          <option value="si">Asistiré con mucho gusto</option>
-          <option value="no">No podré asistir</option>
-          <option value="quizas">Aún no lo sé</option>
+          <option value="si">Sí</option>
+          <option value="no">No</option>
         </select>
       </div>
       <div class="form-group">
@@ -496,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.textContent = 'Enviando...';
     btn.disabled = true;
 
-    var map = { si: 'Sí, asistiré', no: 'No podré asistir', quizas: 'Aún no lo sé' };
+    var map = { si: 'Sí', no: 'No' };
     var gen      = document.getElementById('genero').value;
     var dia      = document.getElementById('cumple-dia').value;
     var mes      = document.getElementById('cumple-mes').value;
