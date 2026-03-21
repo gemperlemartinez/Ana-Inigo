@@ -545,10 +545,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Lightbox
   var galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
-  var currentLightboxIdx = 0;
+  window.currentLightboxIdx = 0;
   galleryImages.forEach(function(img, i) {
     img.parentElement.addEventListener('click', function() {
-      currentLightboxIdx = i;
+      window.currentLightboxIdx = i;
       document.getElementById('lightbox-img').src = img.src;
       document.getElementById('lightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
@@ -566,8 +566,8 @@ function closeLightbox(e) {
 function lightboxMove(dir, e) {
   e.stopPropagation();
   var imgs = Array.from(document.querySelectorAll('.gallery-item img'));
-  currentLightboxIdx = (currentLightboxIdx + dir + imgs.length) % imgs.length;
-  document.getElementById('lightbox-img').src = imgs[currentLightboxIdx].src;
+  window.currentLightboxIdx = (window.currentLightboxIdx + dir + imgs.length) % imgs.length;
+  document.getElementById('lightbox-img').src = imgs[window.currentLightboxIdx].src;
 }
 function toggleNav() {
   var links = document.getElementById('navLinks');
