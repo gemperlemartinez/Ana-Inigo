@@ -25,6 +25,8 @@
     nav a{color:var(--taupe);text-decoration:none;transition:color .3s;position:relative;padding-bottom:2px}
     nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--burg);transition:width .3s}
     nav a:hover{color:var(--burg)}nav a:hover::after{width:100%}
+    .nav-brand{display:none}
+    .nav-links{display:flex;gap:1.8rem;align-items:center}
     .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--taupe);font-size:1.3rem;padding:.2rem}
     @media(max-width:640px){
       nav{justify-content:space-between;flex-wrap:nowrap;padding:.9rem 1.2rem}
