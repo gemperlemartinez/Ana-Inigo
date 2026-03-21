@@ -19,13 +19,23 @@
     body{font-family:'Lato',sans-serif;font-weight:300;background:var(--ivory);color:var(--brown);overflow-x:hidden}
     .daisy{position:fixed;pointer-events:none;z-index:0;opacity:0;font-size:2rem;animation:daisyDrift linear infinite;user-select:none;filter:sepia(1) saturate(4) hue-rotate(310deg)}
     @keyframes daisyDrift{0%{transform:translateY(-20px) rotate(0deg);opacity:0}8%{opacity:.2}92%{opacity:.12}100%{transform:translateY(105vh) rotate(200deg);opacity:0}}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;gap:1.8rem;flex-wrap:wrap;padding:.9rem 1.5rem;background:rgba(245,239,230,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);letter-spacing:.18em;font-size:.63rem;text-transform:uppercase}
+    /* Scroll progress bar */
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(to right,var(--burg),var(--orange));z-index:200;transition:width .1s linear}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:center;align-items:center;gap:1.8rem;flex-wrap:wrap;padding:.9rem 1.5rem;background:rgba(245,239,230,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);letter-spacing:.18em;font-size:.63rem;text-transform:uppercase}
     nav a{color:var(--taupe);text-decoration:none;transition:color .3s;position:relative;padding-bottom:2px}
     nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--burg);transition:width .3s}
     nav a:hover{color:var(--burg)}nav a:hover::after{width:100%}
+    .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--taupe);font-size:1.3rem;padding:.2rem}
+    @media(max-width:640px){
+      nav{justify-content:space-between;flex-wrap:nowrap;padding:.9rem 1.2rem}
+      .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(245,239,230,.98);flex-direction:column;align-items:center;justify-content:center;gap:2.2rem;z-index:99;font-size:.8rem}
+      .nav-links.open{display:flex}
+      .nav-toggle{display:block;z-index:101}
+      .nav-brand{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--brown);z-index:101}
+    }
     #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#f0e4d4 0%,#dfd0b8 100%)}
-    .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.22}
+    .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.42}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(245,239,230,.5) 0%,rgba(245,239,230,.72) 100%)}
     .hero-corner{position:absolute;pointer-events:none;font-size:clamp(4rem,10vw,8rem);opacity:.06;user-select:none;line-height:1}
     .hero-corner-tl{top:3%;left:1%;transform:rotate(-10deg)}.hero-corner-br{bottom:4%;right:1%;transform:rotate(170deg)}
@@ -77,17 +87,28 @@
     .transport-body{padding:2rem;background:white}
     .transport-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1rem}
     @media(max-width:560px){.transport-grid{grid-template-columns:1fr}}
-    .transport-item{display:flex;gap:.9rem;align-items:flex-start;padding:1rem;background:var(--ivory);border-left:2px solid var(--parch)}
+    .transport-item{display:flex;gap:.9rem;align-items:flex-start;padding:1rem;background:var(--ivory);border-left:2px solid var(--orange-l)}
     .transport-emoji{font-size:1.3rem;flex-shrink:0;margin-top:.1rem}
     .transport-label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bottle);margin-bottom:.3rem}
     .transport-text{font-size:.86rem;line-height:1.7;color:var(--brown-l)}
     .transport-highlight{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--brown);font-style:italic}
     #galeria{background:var(--ivory);text-align:center}
-    .gallery-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
-    @media(max-width:560px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
-    .gallery-item{aspect-ratio:3/4;background:var(--parch);overflow:hidden;transition:transform .3s}
-    .gallery-item:hover{transform:scale(1.02)}
-    .gallery-item img{width:100%;height:100%;object-fit:cover}
+    .gallery-grid{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:.8rem}
+    @media(max-width:560px){.gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}}
+    .gallery-item{background:var(--parch);overflow:hidden;cursor:pointer;transition:transform .3s,box-shadow .3s}
+    .gallery-item:hover{transform:scale(1.02);box-shadow:0 12px 35px rgba(110,34,51,.15)}
+    .gallery-item:first-child{grid-column:span 2;grid-row:span 2}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+    .gallery-item:hover img{transform:scale(1.05)}
+    /* Lightbox */
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(30,15,10,.92);z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+    .lightbox.active{display:flex}
+    .lightbox img{max-width:90vw;max-height:88vh;object-fit:contain;border:1px solid rgba(255,255,255,.08)}
+    .lightbox-close{position:absolute;top:1.5rem;right:2rem;color:rgba(245,239,230,.7);font-size:2rem;cursor:pointer;background:none;border:none;line-height:1;transition:color .2s}
+    .lightbox-close:hover{color:var(--orange-l)}
+    .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(245,239,230,.5);font-size:2.5rem;cursor:pointer;padding:1rem;transition:color .2s;line-height:1}
+    .lightbox-prev{left:1rem}.lightbox-next{right:1rem}
+    .lightbox-prev:hover,.lightbox-next:hover{color:var(--orange-l)}
     #viaje{background:linear-gradient(145deg,var(--burg-d) 0%,#3a2028 50%,var(--bottle-l) 100%);color:var(--ivory);text-align:center;position:relative;overflow:hidden}
     #viaje::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 10% 30%,rgba(184,92,48,.2) 0%,transparent 50%),radial-gradient(ellipse at 90% 70%,rgba(45,74,53,.2) 0%,transparent 50%)}
     #viaje .section-inner{position:relative;z-index:1}
@@ -158,10 +179,25 @@
 <div class="daisy" style="left:7%;animation-duration:30s;animation-delay:0s">🌼</div>
 <div class="daisy" style="left:55%;animation-duration:40s;animation-delay:12s">🌼</div>
 <div class="daisy" style="left:83%;animation-duration:36s;animation-delay:22s">🌼</div>
+<div id="progress-bar"></div>
 <nav>
-  <a href="#hero">Inicio</a><a href="#lugares">Lugares</a><a href="#galeria">Galería</a>
-  <a href="#viaje">Viaje</a><a href="#rsvp">Confirmación</a><a href="#contacto">Contacto</a>
+  <span class="nav-brand">Ana &amp; Íñigo</span>
+  <div class="nav-links" id="navLinks">
+    <a href="#hero" onclick="closeNav()">Inicio</a>
+    <a href="#lugares" onclick="closeNav()">Lugares</a>
+    <a href="#galeria" onclick="closeNav()">Galería</a>
+    <a href="#viaje" onclick="closeNav()">Viaje</a>
+    <a href="#rsvp" onclick="closeNav()">Confirmación</a>
+    <a href="#contacto" onclick="closeNav()">Contacto</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="Menú">☰</button>
 </nav>
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-prev" onclick="lightboxMove(-1,event)">‹</button>
+  <img id="lightbox-img" src="" alt="">
+  <button class="lightbox-next" onclick="lightboxMove(1,event)">›</button>
+</div>
 <section id="hero">
   <div class="hero-bg"><img src="imagenes/hero-fondo.jpg" alt="Ana e Íñigo"></div>
   <div class="hero-overlay"></div>
@@ -501,7 +537,58 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Scroll progress bar
+  window.addEventListener('scroll', function() {
+    var scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('progress-bar').style.width = scrolled + '%';
+  });
+
+  // Lightbox
+  var galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+  var currentLightboxIdx = 0;
+  galleryImages.forEach(function(img, i) {
+    img.parentElement.addEventListener('click', function() {
+      currentLightboxIdx = i;
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
 }); // end DOMContentLoaded
+
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightbox') || e.currentTarget.classList.contains('lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+function lightboxMove(dir, e) {
+  e.stopPropagation();
+  var imgs = Array.from(document.querySelectorAll('.gallery-item img'));
+  currentLightboxIdx = (currentLightboxIdx + dir + imgs.length) % imgs.length;
+  document.getElementById('lightbox-img').src = imgs[currentLightboxIdx].src;
+}
+function toggleNav() {
+  var links = document.getElementById('navLinks');
+  var btn = document.getElementById('navToggle');
+  links.classList.toggle('open');
+  btn.textContent = links.classList.contains('open') ? '✕' : '☰';
+}
+function closeNav() {
+  var links = document.getElementById('navLinks');
+  var btn = document.getElementById('navToggle');
+  links.classList.remove('open');
+  btn.textContent = '☰';
+}
+// Keyboard nav for lightbox
+document.addEventListener('keydown', function(e) {
+  var lb = document.getElementById('lightbox');
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxMove(-1, {stopPropagation:function(){}});
+  if (e.key === 'ArrowRight') lightboxMove(1, {stopPropagation:function(){}});
+});
 </script>
 </body>
 </html>
