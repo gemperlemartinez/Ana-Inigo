@@ -164,6 +164,7 @@
     .contact-item{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem}
     .contact-item a{font-size:.88rem;color:var(--brown-l);text-decoration:none;transition:color .3s}
     .contact-item a:hover{color:var(--burg)}
+    .contact-icon{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--burg);min-width:38px;font-family:'Lato',sans-serif;font-weight:400}
     footer{text-align:center;padding:3rem 2rem;background:var(--burg-d);color:rgba(245,239,230,.5);font-size:.68rem;letter-spacing:.2em;position:relative}
     footer::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:2px;background:linear-gradient(to right,transparent,var(--orange),transparent)}
     .footer-names{font-family:'Playfair Display',serif;font-size:2rem;font-style:italic;color:var(--parch);margin-bottom:.8rem}
@@ -248,14 +249,14 @@
       </div>
     </div>
     <div class="transport-box reveal">
-      <div class="transport-header"><span style="font-size:1.2rem">🚌</span><span class="transport-header-title">Cómo llegar</span></div>
+      <div class="transport-header"><span class="transport-header-title">Cómo llegar</span></div>
       <div class="transport-body">
         <p style="font-size:.88rem;line-height:1.8">Todo lo que necesitas para llegar y volver sin preocupaciones.</p>
         <div class="transport-grid">
-          <div class="transport-item"><span class="transport-emoji">🚌</span><div><p class="transport-label">Bus de ida</p><p class="transport-text">Autobús desde la <strong>Parroquia de San Jorge</strong> hasta la <strong>Finca El Chaparral</strong> al terminar la ceremonia.</p></div></div>
-          <div class="transport-item"><span class="transport-emoji">🌙</span><div><p class="transport-label">Bus de vuelta</p><p class="transport-text">Regreso a Madrid desde la finca. <span class="transport-highlight">Horario por determinar.</span></p></div></div>
-          <div class="transport-item"><span class="transport-emoji">🚗</span><div><p class="transport-label">En coche</p><p class="transport-text">La finca dispone de <strong>amplio aparcamiento</strong> para quienes prefieran ir en coche.</p></div></div>
-          <div class="transport-item"><span class="transport-emoji">🚕</span><div><p class="transport-label">Servicio de taxis</p><p class="transport-text">Habrá una persona del personal en la <strong>entrada de la finca</strong> que podrá solicitar taxis a quienes lo deseen.</p></div></div>
+          <div class="transport-item"><div><p class="transport-label">Bus de ida</p><p class="transport-text">Autobús desde la <strong>Parroquia de San Jorge</strong> hasta la <strong>Finca El Chaparral</strong> al terminar la ceremonia.</p></div></div>
+          <div class="transport-item"><div><p class="transport-label">Bus de vuelta</p><p class="transport-text">Regreso a Madrid desde la finca. <span class="transport-highlight">Horario por determinar.</span></p></div></div>
+          <div class="transport-item"><div><p class="transport-label">En coche</p><p class="transport-text">La finca dispone de <strong>amplio aparcamiento</strong> para quienes prefieran ir en coche.</p></div></div>
+          <div class="transport-item"><div><p class="transport-label">Servicio de taxis</p><p class="transport-text">Habrá una persona del personal en la <strong>entrada de la finca</strong> que podrá solicitar taxis a quienes lo deseen.</p></div></div>
         </div>
       </div>
     </div>
@@ -274,22 +275,13 @@
 </section>
 <section id="viaje">
   <div class="section-inner">
-    <span class="section-label reveal">Luna de miel</span>
-    <h2 class="section-title reveal">Nuestro viaje</h2>
-    <div class="divider divider-center reveal"><span style="font-size:2rem">✈</span></div>
+    <span class="section-label reveal">Nuestro regalo</span>
+    <h2 class="section-title reveal">Si queréis hacernos un regalo</h2>
+    <div class="divider divider-center reveal"><span class="divider-icon">🌼</span></div>
     <div class="viaje-message reveal">
       <p>Nuestro mayor regalo es que podáis acompañarnos en este día tan especial. Vuestra presencia, vuestras risas y vuestro cariño son todo lo que necesitamos para que sea el día más bonito de nuestras vidas.</p>
       <p>Si queréis hacernos un regalo y ayudarnos a empezar nuestra vida juntos os lo agradeceremos con todo el corazón.</p>
       <span class="viaje-firma">— Ana e Íñigo</span>
-    </div>
-    <div class="destinations reveal">
-      <div class="destination"><div class="destination-name">Japón</div><div class="destination-sub">Asia Oriental</div></div>
-      <div class="dest-separator">✈</div>
-      <div class="destination"><div class="destination-name">Tailandia</div><div class="destination-sub">Asia Sudoriental</div></div>
-    </div>
-    <div class="destination-photos reveal">
-      <div class="dest-photo"><img src="imagenes/viaje-destino1.jpg" alt="Japón"></div>
-      <div class="dest-photo"><img src="imagenes/viaje-destino2.jpg" alt="Tailandia"></div>
     </div>
     <div class="iban-box reveal">
       <p class="iban-value">ES29 0049 0496 8727 1023 6735</p>
@@ -324,36 +316,11 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="genero">Género</label>
-        <select id="genero">
-          <option value="">Selecciona...</option>
-          <option value="mujer">Mujer</option>
-          <option value="hombre">Hombre</option>
+        <label for="alpargatas">¿Vas a necesitar alpargatas?</label>
+        <select id="alpargatas">
+          <option value="no">No, gracias</option>
+          <option value="si">Sí, las necesito</option>
         </select>
-        <span class="form-note">Lo necesitamos para organizar las alpargatas 🙂</span>
-      </div>
-      <div class="form-group" id="shoeSizeGroup" style="display:none">
-        <label for="talla">Talla de pie</label>
-        <select id="talla">
-          <option value="">Selecciona tu talla...</option>
-          <option>35</option><option>36</option><option>36.5</option><option>37</option><option>37.5</option>
-          <option>38</option><option>38.5</option><option>39</option><option>39.5</option><option>40</option>
-          <option>41</option><option>42</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Fecha de cumpleaños</label>
-        <div class="date-group">
-          <select id="cumple-dia"><option value="">Día</option></select>
-          <select id="cumple-mes">
-            <option value="">Mes</option>
-            <option value="01">Enero</option><option value="02">Febrero</option><option value="03">Marzo</option>
-            <option value="04">Abril</option><option value="05">Mayo</option><option value="06">Junio</option>
-            <option value="07">Julio</option><option value="08">Agosto</option><option value="09">Septiembre</option>
-            <option value="10">Octubre</option><option value="11">Noviembre</option><option value="12">Diciembre</option>
-          </select>
-          <select id="cumple-ano"><option value="">Año</option></select>
-        </div>
       </div>
       <div class="form-group">
         <label for="bus-opcion">¿Necesitas autobús?</label>
@@ -384,7 +351,7 @@
       </div>
       <button type="button" id="submitBtn" class="btn-primary">Confirmar asistencia</button>
     </form>
-    <p id="rsvpSuccess" style="display:none;margin-top:2rem;color:var(--burg);font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic">¡Gracias! Estamos deseando verte 🤍</p>
+    <p id="rsvpSuccess" style="display:none;margin-top:2rem;color:var(--burg);font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic">¡Gracias! Estamos deseando verte.</p>
   </div>
 </section>
 <section id="contacto">
@@ -396,13 +363,13 @@
     <div class="contact-grid reveal">
       <div class="contact-card">
         <div class="contact-name">Ana</div>
-        <div class="contact-item"><span>📞</span><a href="tel:+34687665846">687 665 846</a></div>
-        <div class="contact-item"><span>✉️</span><a href="mailto:gemperlemartinez@gmail.com">gemperlemartinez@gmail.com</a></div>
+        <div class="contact-item"><span class="contact-icon">Tel</span><a href="tel:+34687665846">687 665 846</a></div>
+        <div class="contact-item"><span class="contact-icon">Email</span><a href="mailto:gemperlemartinez@gmail.com">gemperlemartinez@gmail.com</a></div>
       </div>
       <div class="contact-card">
         <div class="contact-name">Íñigo</div>
-        <div class="contact-item"><span>📞</span><a href="tel:+34648435889">648 435 889</a></div>
-        <div class="contact-item"><span>✉️</span><a href="mailto:gemperlemartinez@gmail.com">gemperlemartinez@gmail.com</a></div>
+        <div class="contact-item"><span class="contact-icon">Tel</span><a href="tel:+34648435889">648 435 889</a></div>
+        <div class="contact-item"><span class="contact-icon">Email</span><a href="mailto:gemperlemartinez@gmail.com">gemperlemartinez@gmail.com</a></div>
       </div>
     </div>
   </div>
@@ -420,24 +387,6 @@ function toggleBusHorario() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-
-  // Populate day selector
-  var dSel = document.getElementById('cumple-dia');
-  for (var i = 1; i <= 31; i++) {
-    var opt = document.createElement('option');
-    opt.value = String(i).padStart(2, '0');
-    opt.textContent = i;
-    dSel.appendChild(opt);
-  }
-  // Populate year selector
-  var ySel = document.getElementById('cumple-ano');
-  var curY = new Date().getFullYear();
-  for (var j = curY; j >= 1920; j--) {
-    var opt2 = document.createElement('option');
-    opt2.value = j;
-    opt2.textContent = j;
-    ySel.appendChild(opt2);
-  }
 
   // Countdown
   var prevSec = -1;
@@ -478,11 +427,6 @@ document.addEventListener('DOMContentLoaded', function() {
     obs.observe(el);
   });
 
-  // Shoe size toggle
-  document.getElementById('genero').addEventListener('change', function() {
-    document.getElementById('shoeSizeGroup').style.display = this.value === 'mujer' ? 'flex' : 'none';
-  });
-
   // Submit button click handler (type=button, not submit)
   document.getElementById('submitBtn').addEventListener('click', function() {
     var nombre = document.getElementById('nombre').value.trim();
@@ -495,26 +439,20 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.disabled = true;
 
     var map = { si: 'Sí', no: 'No' };
-    var gen      = document.getElementById('genero').value;
-    var dia      = document.getElementById('cumple-dia').value;
-    var mes      = document.getElementById('cumple-mes').value;
-    var ano      = document.getElementById('cumple-ano').value;
     var busOpcion = document.getElementById('bus-opcion').value;
     var busLabels = { no: 'No necesita', ida: 'Solo ida (Iglesia → Finca)', vuelta: 'Solo vuelta (Finca → Madrid)', ambos: 'Ida y vuelta' };
     var busHorarioEl = document.querySelector('input[name="bus-horario"]:checked');
     var busHorario = (busOpcion === 'vuelta' || busOpcion === 'ambos') ? (busHorarioEl ? busHorarioEl.value : 'Sin preferencia') : '-';
 
     var data = {
-      nombre:     nombre,
-      telefono:   document.getElementById('telefono').value   || 'No indicado',
-      direccion:  document.getElementById('direccion').value  || 'No indicada',
-      asistencia: map[document.getElementById('asistencia').value] || document.getElementById('asistencia').value,
-      genero:     gen || 'No indicado',
-      talla:      gen === 'mujer' ? (document.getElementById('talla').value || 'No indicada') : '-',
-      cumple:     (dia && mes && ano) ? dia + '/' + mes + '/' + ano : 'No indicado',
-      autobus:    busLabels[busOpcion] || busOpcion,
+      nombre:          nombre,
+      telefono:        document.getElementById('telefono').value  || 'No indicado',
+      direccion:       document.getElementById('direccion').value || 'No indicada',
+      asistencia:      map[document.getElementById('asistencia').value] || document.getElementById('asistencia').value,
+      alpargatas:      map[document.getElementById('alpargatas').value] || document.getElementById('alpargatas').value,
+      autobus:         busLabels[busOpcion] || busOpcion,
       autobus_horario: busHorario,
-      alergias:   document.getElementById('alergias').value || 'Ninguna'
+      alergias:        document.getElementById('alergias').value || 'Ninguna'
     };
 
     var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw82c74Md8Gdn3StIp1TPX61kc7Y-Y68uLQVRBui6crK14J4wjdeH-y-NMInbTT1cnbGg/exec';
