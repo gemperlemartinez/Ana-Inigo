@@ -263,8 +263,8 @@
         <div class="transport-grid">
           <div class="transport-item"><div><p class="transport-label">Bus de ida</p><p class="transport-text">Autobús desde la Parroquia de San Jorge hasta la Finca El Chaparral al terminar la ceremonia.</p></div></div>
           <div class="transport-item"><div><p class="transport-label">Bus de vuelta</p><p class="transport-text">Regreso a Madrid desde la finca. Horario por determinar.</p></div></div>
-          <div class="transport-item"><div><p class="transport-label">En coche</p><p class="transport-text">La finca dispone de amplio aparcamiento para quienes prefieran ir en coche.</p></div></div>
-          <div class="transport-item"><div><p class="transport-label">Servicio de taxis</p><p class="transport-text">Habrá una persona del personal en la entrada de la finca que podrá solicitar taxis a quienes lo deseen.</p></div></div>
+          <div class="transport-item"><div><p class="transport-label">En coche</p><p class="transport-text">La finca tiene amplio aparcamiento para quienes prefieran ir en coche.</p></div></div>
+          <div class="transport-item"><div><p class="transport-label">Servicio de taxis</p><p class="transport-text">Habrá alguien en la entrada de la finca que podrá solicitar un taxi a quien lo necesite.</p></div></div>
         </div>
       </div>
     </div>
@@ -286,11 +286,9 @@
       <div class="viaje-message reveal">
         <p>Nuestro mayor regalo es que podáis acompañarnos en este día tan especial. Vuestra presencia, vuestras risas y vuestro cariño son todo lo que necesitamos para que sea el día más bonito de nuestras vidas.</p>
         <p>Si queréis hacernos un regalo y ayudarnos a empezar nuestra vida juntos os lo agradeceremos con todo el corazón.</p>
-        <span class="viaje-firma">— Ana e Íñigo</span>
       </div>
       <div class="iban-box reveal">
         <p class="iban-value">ES29 0049 0496 8727 1023 6735</p>
-        <p style="color:rgba(245,239,230,.4);font-size:.75rem;margin-top:.5rem">Titular: Ana e Íñigo</p>
       </div>
     </div>
   </div>
@@ -319,13 +317,6 @@
         <select id="asistencia">
           <option value="si">Sí</option>
           <option value="no">No</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="alpargatas">¿Vas a necesitar alpargatas?</label>
-        <select id="alpargatas">
-          <option value="no">No, gracias</option>
-          <option value="si">Sí, las necesito</option>
         </select>
       </div>
       <div class="form-group">
@@ -365,7 +356,7 @@
     <span class="section-label reveal" style="color:var(--burg)">¿Necesitas algo?</span>
     <h2 class="section-title reveal">Contacto</h2>
     <div class="divider divider-center reveal"><span class="divider-icon">🌼</span></div>
-    <p class="reveal">Si tienes cualquier duda, no dudes en escribirnos o llamarnos.</p>
+    <p class="reveal">Si tienes cualquier consulta, escríbenos o llámanos.</p>
     <div class="contact-grid reveal">
       <div class="contact-card">
         <div class="contact-name">Ana</div>
@@ -381,7 +372,6 @@
   </div>
 </section>
 <footer>
-  <div class="footer-names">Ana &amp; Íñigo</div>
   <p>28 · Noviembre · 2026 · Madrid</p>
   <p style="margin-top:.8rem;font-size:.58rem;opacity:.35">Con amor</p>
 </footer>
@@ -455,7 +445,6 @@ document.addEventListener('DOMContentLoaded', function() {
       telefono:        document.getElementById('telefono').value  || 'No indicado',
       direccion:       document.getElementById('direccion').value || 'No indicada',
       asistencia:      map[document.getElementById('asistencia').value] || document.getElementById('asistencia').value,
-      alpargatas:      map[document.getElementById('alpargatas').value] || document.getElementById('alpargatas').value,
       autobus:         busLabels[busOpcion] || busOpcion,
       autobus_horario: busHorario,
       alergias:        document.getElementById('alergias').value || 'Ninguna'
