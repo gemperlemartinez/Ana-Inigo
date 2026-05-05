@@ -28,7 +28,10 @@
     nav a:hover{color:var(--burg)}nav a:hover::after{width:100%}
     .nav-brand{display:none}
     .nav-links{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;justify-content:center;align-items:center;gap:1.8rem;padding:.9rem 1.5rem;pointer-events:none}
-    .nav-links a{pointer-events:all}
+    .nav-links a{pointer-events:all;font-family:'Lato',sans-serif;font-weight:300;font-size:.63rem;letter-spacing:.18em;text-transform:uppercase;color:var(--taupe);text-decoration:none;transition:color .3s;position:relative;padding-bottom:2px}
+    .nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--burg);transition:width .3s}
+    .nav-links a:hover{color:var(--burg)}
+    .nav-links a:hover::after{width:100%}
     .nav-close{display:none}
     .nav-divider{display:none}
     .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--taupe);font-size:1.3rem;padding:.2rem}
