@@ -522,14 +522,14 @@ function lightboxMove(dir, e) {
 function toggleNav() {
   var links = document.getElementById('navLinks');
   var btn = document.getElementById('navToggle');
-  links.classList.toggle('open');
-  btn.textContent = links.classList.contains('open') ? '✕' : '☰';
+  var isOpen = links.classList.toggle('open');
+  btn.style.visibility = isOpen ? 'hidden' : 'visible';
 }
 function closeNav() {
   var links = document.getElementById('navLinks');
   var btn = document.getElementById('navToggle');
   links.classList.remove('open');
-  btn.textContent = '☰';
+  btn.style.visibility = 'visible';
 }
 // Touch swipe for lightbox
 (function() {
