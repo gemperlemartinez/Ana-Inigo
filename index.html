@@ -27,7 +27,10 @@
     nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--burg);transition:width .3s}
     nav a:hover{color:var(--burg)}nav a:hover::after{width:100%}
     .nav-brand{display:none}
-    .nav-links{display:flex;gap:1.8rem;align-items:center}
+    .nav-links{position:fixed;top:0;left:0;right:0;z-index:99;display:flex;justify-content:center;align-items:center;gap:1.8rem;padding:.9rem 1.5rem;pointer-events:none}
+    .nav-links a{pointer-events:all}
+    .nav-close{display:none}
+    .nav-divider{display:none}
     .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:var(--taupe);font-size:1.3rem;padding:.2rem}
     @media(max-width:640px){
       nav{justify-content:space-between;flex-wrap:nowrap;padding:.9rem 1.2rem}
@@ -44,7 +47,8 @@
     }
     #hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 2rem 5rem;position:relative;overflow:hidden}
     .hero-bg{position:absolute;inset:0;background:linear-gradient(160deg,#f0e4d4 0%,#dfd0b8 100%)}
-    .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:.65}
+    .hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;opacity:.65}
+    @media(max-width:640px){.hero-bg img{object-position:center top}}
     .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(245,239,230,.5) 0%,rgba(245,239,230,.72) 100%)}
     .hero-corner{position:absolute;pointer-events:none;font-size:clamp(4rem,10vw,8rem);opacity:.06;user-select:none;line-height:1}
     .hero-corner-tl{top:3%;left:1%;transform:rotate(-10deg)}.hero-corner-br{bottom:4%;right:1%;transform:rotate(170deg)}
@@ -284,8 +288,8 @@
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 10% 30%,rgba(184,92,48,.2) 0%,transparent 50%),radial-gradient(ellipse at 90% 70%,rgba(45,74,53,.2) 0%,transparent 50%)"></div>
     <div style="position:relative;z-index:1;max-width:600px;margin:0 auto">
       <div class="viaje-message reveal">
-        <p>Nuestro mayor regalo es que podáis acompañarnos en este día tan especial. Vuestra presencia, vuestras risas y vuestro cariño son todo lo que necesitamos para que sea el día más bonito de nuestras vidas.</p>
-        <p>Si queréis hacernos un regalo y ayudarnos a empezar nuestra vida juntos os lo agradeceremos con todo el corazón.</p>
+        <p>Nuestro mayor regalo es que podáis acompañarnos en este día tan especial.</p>
+        <p>Para aquellos que queráis ayudarnos en nuestra nueva vida juntos os facilitamos nuestro número de cuenta.</p>
       </div>
       <div class="iban-box reveal">
         <p class="iban-value">ES29 0049 0496 8727 1023 6735</p>
