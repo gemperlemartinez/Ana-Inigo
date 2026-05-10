@@ -477,7 +477,9 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(function() {
       document.getElementById('rsvpForm').style.display = 'none';
-      document.getElementById('rsvpSuccess').style.display = 'block';
+      var ok = document.getElementById('rsvpSuccess');
+      ok.style.display = 'block';
+      ok.scrollIntoView({ behavior: 'smooth', block: 'center' });
     })
     .catch(function(err) {
       console.error('Error:', err);
